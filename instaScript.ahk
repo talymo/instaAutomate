@@ -3,6 +3,8 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+InstaScript() {
+
     ; Get list of hashtags from hashtags.txt
     hashtags := Object()
     Loop, read, % A_ScriptDir "\hashtags.txt"
@@ -109,13 +111,15 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
         }
 
-        ; If we reach the end of the hashtags, start over.
-        if (i == hashtags.length) {
-            i = 0;
-        }
-
     }
-            
-return															
+
+    if (i == hashtags.length) {
+        Sleep 3600000
+        instaScript()
+    }
+
+}
+
+instaScript()
 
 Esc::ExitApp
