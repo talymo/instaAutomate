@@ -107,7 +107,12 @@ InstaScript() {
             NextArrow := wb.document.getElementsByClassName("_3a693")
 
             Sleep 4000
-            NextArrow[0].Click()
+
+            if NextArrow.length > 0 {
+                NextArrow[0].Click()
+            } else {
+                break
+            }
 
         }
 
