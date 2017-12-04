@@ -11,7 +11,7 @@ InstaScript() {
         hashtags[A_Index] := A_LoopReadLine
 
     ; How many posts we want to like
-    Posts = 9 ; 15
+    Posts = 3 ; 15
 
     ; How many posts we have liked
     LikedPosts = 0;
@@ -20,7 +20,7 @@ InstaScript() {
     wb.Visible := true
 
 
-    For i in  hashtags {
+    For i in hashtags {
 
         ; The hashtag we want to like
 
@@ -44,10 +44,6 @@ InstaScript() {
 
         ; this is the first link on the page
         Links := wb.document.querySelectorAll(QuerySelector)
-
-        if (Links.length < 0) {
-            break
-        }
 
         ; Click that first link
         Links[0].Click()
@@ -77,7 +73,7 @@ InstaScript() {
 
                     Sleep 3000
 
-                    if NextArrow.length > 0 {
+                    if NextArrow[0] {
                         NextArrow[0].Click()
                     } else {
                         break
@@ -106,7 +102,7 @@ InstaScript() {
                 FollowLink := wb.document.getElementsByClassName("_qv64e")
                 Sleep 3000
 
-                if FollowLink.length > 0 {
+                if FollowLink[0] {
                     FollowLink[0].Click()
                 } else {
                     break
@@ -118,7 +114,7 @@ InstaScript() {
 
             Sleep 4000
 
-            if NextArrow.length > 0 {
+            if NextArrow[0] {
                 NextArrow[0].Click()
             } else {
                 break
