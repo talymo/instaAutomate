@@ -76,7 +76,12 @@ InstaScript() {
                     NextArrow := wb.document.getElementsByClassName("_3a693")
 
                     Sleep 3000
-                    NextArrow[0].Click()
+
+                    if NextArrow.length > 0 {
+                        NextArrow[0].Click()
+                    } else {
+                        break
+                    }
 
                 }
 
@@ -100,7 +105,12 @@ InstaScript() {
             {
                 FollowLink := wb.document.getElementsByClassName("_qv64e")
                 Sleep 3000
-                FollowLink[0].Click()
+
+                if FollowLink.length > 0 {
+                    FollowLink[0].Click()
+                } else {
+                    break
+                }
             }
 
             ; Get the next arrow
